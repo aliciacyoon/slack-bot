@@ -29,7 +29,8 @@ app.command("/summertime-help", async ({ ack, respond }) => {
 /summertime-ping - Check bot latency
 /summertime-catfact - Get a cat fact
 /summertime-joke - Get a joke
-/summertime-magic - Get a list of Harry Potter spells and uses`
+/summertime-magic - Get a list of Harry Potter spells and uses
+/summertime-houses - Gets the Harry Potter houses, founders, and emojis`
   });
 });
 
@@ -72,5 +73,20 @@ app.command("/summertime-magic", async ({ ack, respond}) => {
         });
     } catch (err) {
       await respond({ text: `Failed to fetch spells. Error: ${err.message}` });
+    }
+})
+
+app.command("/summertime-houses", async ({ ack, respond}) => {
+    await ack();
+
+    try {
+        const res = await axios.get('https://potterapi-fedeperin.vercel.app/en/houses')
+        const spells = res.data
+
+        await respond({
+          text: spells.map(h => `${h.house}, founded by ${h.founder}: ${h.emoji}\n` ).join('')
+        });
+    } catch (err) {
+      await respond({ text: `Failed to fetch Harry Potter houses.` });
     }
 })
