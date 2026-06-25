@@ -57,3 +57,17 @@ ${response.data.punchline}`
     await respond({ text: "Failed to fetch a joke." });
   }
 });
+
+app.command("/summertime-magic", async ({ ack, respond}) => {
+    await ack();
+
+    try {
+        const res = await fetch('https://potterapi-fedeperin.vercel.app/en/spells')
+        const spells = await res.json()
+
+        await respond({ spells });
+    } catch (err) {
+    await respond({ text: "Failed to fetch spells." });
+  }
+    
+})
