@@ -27,7 +27,9 @@ app.command("/summertime-help", async ({ ack, respond }) => {
     text:
 `Available Commands:
 /summertime-ping - Check bot latency
-/summertime-catfact - Get a cat fact`
+/summertime-catfact - Get a cat fact
+/summertime-joke - Get a joke
+/summertime-magic - Get a list of Harry Potter spells and uses`
   });
 });
 
@@ -49,10 +51,10 @@ app.command("/summertime-joke", async ({ ack, respond }) => {
     const response = await axios.get("https://official-joke-api.appspot.com/random_joke");
     await respond({
       text:
-`${response.data.setup}
+    `${response.data.setup}
 
-${response.data.punchline}`
-    });
+    ${response.data.punchline}`
+        });
   } catch (err) {
     await respond({ text: "Failed to fetch a joke." });
   }
@@ -62,12 +64,13 @@ app.command("/summertime-magic", async ({ ack, respond}) => {
     await ack();
 
     try {
-        const res = await fetch('https://potterapi-fedeperin.vercel.app/en/spells')
-        const spells = await res.json()
+        const res = await axios.get('https://potterapi-fedeperin.vercel.app/en/spells')
+        const spells = res.data
 
-        await respond({ spells });
+        await respond({
+          text: spells.map(s => `${s.spell}: ${s.use}\n` ).join('')
+        });
     } catch (err) {
-    await respond({ text: "Failed to fetch spells." });
-  }
-    
+      await respond({ text: `Failed to fetch spells. Error: ${err.message}` });
+    }
 })
