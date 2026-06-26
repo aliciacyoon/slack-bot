@@ -13,7 +13,7 @@ I made this so I could learn more about API calls and understanding Slack Bots :
 
 | command | use | 
 | ------- | --- |
-/summertime-houses	| returns harry potter houses, their founders, and a relatedemoji 
+/summertime-houses	| returns harry potter houses, their founders, and a related emoji 
 /summertime-magic	 |  gets magic spells from harry potter
 | /summertime-help | 	Display all available commands |
 /summertime-ping	| Check bot latency
