@@ -6,7 +6,8 @@ Developed as part of the StarDance Hack Club challenge.
 
 ## ℹ️ Overview
 
-Developed as part of the StarDance Hack Club challenge.
+Developed as part of the StarDance Hack Club challenge. <br>
+<br>
 I made this so I could learn more about API calls and understanding Slack Bots :)). Plus, I'm a Harry Potter fan, so it was fun to learn about the free use of the Potter API.
 
 ## Available Commands:
