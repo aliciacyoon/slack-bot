@@ -2,7 +2,7 @@ I made summertime, a Slack Bot that calls from different kinds of APIs, so I cou
 
 Developed as part of the StarDance Hack Club challenge.
 
-Available Commands:
+**Available Commands:**
 
 /summertime-help	Display all available commands
 /summertime-ping	Check bot latency
@@ -11,7 +11,7 @@ Available Commands:
 /summertime-houses	returns harry potter houses, their founders, and a relatedemoji 
 /summertime-magic	  gets magic spells from harry potter
 
-Built With:
+**Built With:**
 Harry Potter API
 Joke API
 Cat Fact API
